@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float	first_number = 0;
+    float second_number = 0;
+    
+    cout << "enter the first number: ";
+	cin >> first_number;
+	
+	cout << "enter the second number: ";
+	cin >> second_number;
+	
+	float multiplication = first_number * second_number;
+    float AVG = (first_number + second_number) / 2;
+    float X = first_number * first_number + 4 * (first_number * multiplication + 2 * first_number);
+	
+	cout << "multiplication: " << multiplication << "!\n";
+	cout << "X according to the formula is: " << X << "!\n";
+	cout << "AVG: " << AVG << endl;
+
+	return 0;
+	
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    /*int	amount = 0;
+	int new_disgrace = 0;
+	
+	cout << "how many times did Vova disgrace himself today? ";
+	cin >> new_disgrace;
+	
+	cout << "the total number of embarrassments in the week: ";
+	cin >> amount;
+	
+	cout << "Vova disgraced " << new_disgrace << " times.\n";
+	cout << "New total: " << amount + new_disgrace << endl;
+
+	return 0;*/
+}

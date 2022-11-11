@@ -1,0 +1,51 @@
+#include <iostream>
+#include <time.h>
+
+using namespace std;
+
+
+float PLUSES(float* massive)
+{
+	int sum = 0;
+	for (int i(0); i < 10; ++i)
+	{
+		if (massive[i] > 0)
+		{
+			sum += massive[i];
+		}
+		
+	}
+	return (sum);
+}
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+
+	const int n = 10;
+	float mas[n];
+	int count = 0;
+	int countzero = 0;
+
+	srand(time(NULL));
+	for (int i(0); i < n;++i) {
+		mas[i] = (float)(rand() % 10 - 5);
+		cout << mas[i] << " "; //вывод массива
+		
+	}
+
+	cout << endl;
+
+	for (int i = 0; i < 10; i++)
+	{
+		if (mas[i] < 0)
+			count++;
+		; 
+	}
+
+	
+
+	cout << "Кол-во отрицательных чисел: "<< count << endl; //вывод кол-ва отрицательных
+	cout << "Сумма положительных чисел: " << PLUSES(mas) << endl; //вывод положительных чисел
+	
+}

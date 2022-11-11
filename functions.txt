@@ -1,0 +1,92 @@
+#include <iostream>
+using namespace std;
+
+void PrintArr(int* arr, const size_t N, const int col)
+{
+	for (int i = 0; i < N; i++)
+	{
+		if (i % col == 0) cout << endl;
+		cout << arr[i] << " ";
+	}
+}
+
+int InicArr()
+{
+	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	const std::size_t N = sizeof(arr) / sizeof(*arr);
+	const int COLUMNS = 3;
+	PrintArr(arr, N, COLUMNS);
+	return 0;
+}
+
+
+int Plus()
+{
+	int a, b, c;
+	cout << "Введите первое слогаемое: ";
+	cin >> a;
+	cout << "Введите второе слогаемое: ";
+	cin >> b;
+
+	c = a + b;
+
+	cout << "Результат: ";
+	return (c);
+}
+
+int Minus()
+{
+	int a, b, c;
+	cout << "Уменьшаемое: ";
+	cin >> a;
+	cout << "Вычитаемое: ";
+	cin >> b;
+
+	c = a - b;
+	cout << "Разность: ";
+	return (c);
+}
+
+int Delenie()
+{
+	int a, b, c;
+	cout << "Делимое: ";
+	cin >> a;
+	cout << "Делитель: ";
+	cin >> b;
+
+	c = a / b;
+	cout << "Результат: ";
+	return (c);
+}
+
+int Umnojenie()
+{
+	int a, b, c;
+	cout << "Множимое: ";
+	cin >> a;
+	cout << "Множитель: ";
+	cin >> b;
+
+	c = a * b;
+
+	return (c);
+}
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int schet = 1;
+	while (schet != 0)
+	{
+		cout << "Введите 1 для сложения, 2 для вычитания, 3 для деления, 4 для умножения, 5 для вывода массива из 9 чисел и 0 для завершения работы программы: ";
+		cin >> schet;
+		if (schet == 1) cout << Plus();
+		else if (schet == 2) cout << Minus();
+		else if (schet == 3) cout << Delenie();
+		else if (schet == 4) cout << Umnojenie();
+		else if (schet == 5) cout << InicArr();
+		else break;
+		cout << "\n";
+	}
+}

@@ -1,0 +1,45 @@
+#include <iostream>
+#include <time.h>
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+    setlocale(LC_ALL, "Russian");
+    srand(time(NULL));
+
+    const int n = 5, m = 3;
+
+
+    int **matrix = new int*[n];
+
+    cout << "\nИсходная матрица: \n";
+    for (int i = 0; i < n; ++i)
+    {
+        matrix[i] = new int[m];
+        for (int j = 0; j < m; ++j)
+        {
+            matrix[i][j] = rand() % 3;
+            cout << matrix[i][j] << " ";
+        }
+
+        cout << "\n";
+    }
+    int a, b;
+    cout << "Введите строки, которые хотите поменять: ";
+    cin >> a >> b;
+    int* tmp = matrix[a];
+    matrix[a] = matrix[b];
+    matrix[b] = tmp;
+
+    cout << "\n";
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < m; ++j)
+        {
+            cout << matrix[i][j] << " ";
+        }
+
+        cout << "\n";
+    }
+}
+    

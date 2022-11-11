@@ -1,0 +1,55 @@
+#include <time.h>
+#include <iostream>
+using namespace std;
+
+void out(float* massive)
+{
+	for (int i(0); i < 10; ++i)
+	{
+		cout << massive[i];
+		cout << "\t";
+	}
+	cout << endl;
+}
+
+void eq(float* massive)
+{
+	for (int i(0); i < 10; ++i)
+	{
+		if (massive[i] > 1.5)
+		{
+			cout << massive[i];
+			cout << "\t";
+		}
+	}
+	cout << endl;
+}
+
+float nega(float* massive)
+{
+	int sum = 0;
+	for (int i(0); i < 10; ++i)
+	{
+		if (massive[i] < 0)
+		{
+			sum += massive[i];
+		}
+	}
+	return (sum);
+}
+
+int main()
+{
+	const int n = 10;
+	float mas[n];
+	srand(time(NULL));
+	for (int i(0); i < n;++i) {
+		mas[i] = (float)(rand() % 20001) / 100 - 100; //диапазон чисел [-100;100] с двумя знаками после запятой
+	}
+
+	cout << endl;
+
+	out(mas);
+	eq(mas);
+	cout << nega(mas);
+}

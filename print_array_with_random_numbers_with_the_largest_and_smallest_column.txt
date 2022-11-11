@@ -1,0 +1,147 @@
+#include<iostream>
+#include<ctime>
+#include <algorithm>
+
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+
+    srand(time(NULL));
+    const int ROW = 10;
+    const int COL = 10;
+    int arr[ROW][COL]{};
+    bool check;
+
+    for (int i = 0; i < ROW;)
+    {
+        for (int j = 0; j < COL;)
+        {
+            check = false;
+            int newRandomValue = rand() % (85 - 7 + 1) + 7;
+            for (int y = 0; y < j; y++)
+            {
+                if (arr[i][y] == newRandomValue)
+
+                {
+                    check = true;
+                    break;
+                }
+            }
+            if (!check)
+            {
+                arr[i][j] = newRandomValue;
+                j++;
+            }
+            if (j == COL)
+            {
+                i++;
+                break;
+            }
+        }
+    }
+
+    int cs = 0;
+    int rs = 0;
+
+    for (int k = 0; k < ROW; k++)
+    {
+        for (int l = 0; l < COL; l++)
+        {
+            cout << arr[k][l] << "\t";
+        }
+        cout << endl;
+    }
+
+    int col_sum[ROW] = {};
+    int row_sum[ROW] = {};
+
+    for (int i = 0; i < ROW; i++) {
+        rs = 0;
+        cs = 0;
+        for (int j = 0; j < ROW; j++) {
+            cs += arr[j][i];
+            rs += arr[i][j];
+        }
+        col_sum[i] = cs;
+        row_sum[i] = rs;
+    }
+    for (int i = 0; i < ROW; i++) {
+        cout << col_sum[i] << " ";
+    }
+    cout << endl;
+    
+
+    std::cout << "Макс столбец: " << *max_element(col_sum, col_sum + ROW) << endl;
+    
+    return 0;
+}
+
+
+
+
+#include<iostream>
+#include<ctime>
+#include <algorithm>
+
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+
+    srand(time(NULL));
+    const int ROW = 10;
+    const int COL = 10;
+    int arr[ROW][COL]{};
+    int evenarr[ROW][COL]{};
+    bool check;
+
+    for (int i = 0; i < ROW;)   //Создаём рандомный двумерный массив
+    {
+        for (int j = 0; j < COL;)
+        {
+            check = false;
+            int newRandomValue = rand() % (85 - 7 + 1) + 7;
+            for (int y = 0; y < j; y++)
+            {
+                if (arr[i][y] == newRandomValue)
+
+                {
+                    check = true;
+                    break;
+                }
+            }
+            if (!check)
+            {
+                arr[i][j] = newRandomValue;
+                j++;
+            }
+            if (j == COL)
+            {
+                i++;
+                break;
+            }
+        }
+    }
+    int cs = 0;
+    int rs = 0;
+
+    for (int k = 0; k < ROW; k++)
+    {
+        for (int l = 0; l < COL; l++)
+        {
+
+            if (arr[k][l] % 2 == 0)
+            {
+                evenarr[k][l] = arr[k][l];
+
+            }
+            else
+            {
+                evenarr[k][l] = 0;
+            }
+            cout << evenarr[k][l] << "\t";
+        }
+        cout << endl;
+    }
+}

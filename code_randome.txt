@@ -1,0 +1,47 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime> 
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	int d = 0;
+	int e = 0;
+
+	cout << "введите первое значение: ";
+	cin >> a;
+
+	cout << "введите второе значение: ";
+	cin >> b;
+
+	if ( b <= a) 
+	{
+		cout << " Ошибка, первое значение не должно быть больше или равно второму значению" << endl;
+
+		return 0;
+	}
+	else
+	{
+		cout << "ваш диапазон: (" << a << "," << b << ").\n";
+	}
+	
+	srand(time(NULL));
+	c = a + rand() % b;
+
+	cout << "первое рандомное число(" << c << ").\n";
+
+	d = a + rand() % b;
+
+	cout << "второе рандомное число(" << d << ").\n";
+
+	e = a + rand() % b;
+
+	cout << "третье рандомное число(" << e << ").\n";
+
+	return 0;
+}

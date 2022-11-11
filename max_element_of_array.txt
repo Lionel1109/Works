@@ -1,0 +1,57 @@
+#include <iostream>
+#include <algorithm>
+#include <array>
+#include <numeric>
+#include <random>
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    srand(time(nullptr));
+
+    const int n = 25;
+    int i, r;
+    int arr[n];
+
+    
+
+    for (i = 0; i < n; i++) 
+    {
+        r = rand() % 25;
+        arr[i] = r;
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    int f;
+    int arrr[n];
+
+    for (i = 0; i < n; i++)
+    {
+        f = rand() % 25;
+        arrr[i] = f;
+        cout << arrr[i] << " ";
+    }
+    cout << endl;
+
+    int arrrr[n];
+
+    for (i = 0; i < n; i++)
+    {
+        arrrr[i] = arr[i] + arrr[i];
+
+        cout << arrrr[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Максимальный элемент: " <<
+        *max_element(arrrr, arrrr + n) << endl;
+
+    cout << "Минимальный элемент: " <<
+        *min_element(arrrr, arrrr + n) << endl;
+
+    return 0;
+}
+
